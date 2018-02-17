@@ -13,7 +13,13 @@ import java.util.ArrayList;
 public class JsonUtils {
 
     private static final String LOG_TAG = JsonUtils.class.getSimpleName();
-
+    public static final String KEY_NAME = "name";
+    public static final String KEY_MAIN_NAME = "mainName";
+    public static final String KEY_ALSO_KNOWN_AS = "alsoKnownAs";
+    public static final String KEY_PLACE_OF_ORIGIN = "placeOfOrigin";
+    public static final String KEY_DESCRIPTION = "description";
+    public static final String KEY_IMAGE = "image";
+    public static final String KEY_INGREDIENTS = "ingredients";
     public static Sandwich parseSandwichJson(String jsonStr) {
         Sandwich sandwich = null;
         try {
@@ -33,25 +39,25 @@ public class JsonUtils {
         ArrayList<String> listIngredients = new ArrayList<>();
 
         JSONObject jsonObject = new JSONObject(jsonStr);
-        JSONObject nameObject = jsonObject.getJSONObject("name");
+        JSONObject nameObject = jsonObject.getJSONObject(KEY_NAME);//optJSONObject() here retun null if not exist
 
-        //sandwich mainName
-        String mainName = nameObject.getString("mainName");
+        //sandwich mainName  //optString() return empty string so u not have to handle exceptions
+        String mainName = nameObject.getString(KEY_MAIN_NAME);
         //sandwich alsoKnownAs
-        JSONArray alsoKnownAs = nameObject.getJSONArray("alsoKnownAs");
+        JSONArray alsoKnownAs = nameObject.getJSONArray(KEY_ALSO_KNOWN_AS);
         if (alsoKnownAs.length() > 0) {
             for (int i = 0; i < alsoKnownAs.length(); i++) {
                 listAlsoKnownAs.add(alsoKnownAs.getString(i));
             }
         }
         //sandwich placeOfOrigin
-        String placeOfOrigin = jsonObject.getString("placeOfOrigin");
+        String placeOfOrigin = jsonObject.getString(KEY_PLACE_OF_ORIGIN);
         //sandwich description
-        String description = jsonObject.getString("description");
+        String description = jsonObject.getString(KEY_DESCRIPTION);
         //sandwich image
-        String image = jsonObject.getString("image");
+        String image = jsonObject.getString(KEY_IMAGE);
         //sandwich ingredients
-        JSONArray ingredients = jsonObject.getJSONArray("ingredients");
+        JSONArray ingredients = jsonObject.getJSONArray(KEY_INGREDIENTS);
         if (ingredients.length() > 0) {
             for (int i = 0; i < ingredients.length(); i++) {
                 listIngredients.add(ingredients.getString(i));

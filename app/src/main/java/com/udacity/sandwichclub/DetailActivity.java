@@ -69,39 +69,51 @@ public class DetailActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.description_tv);
         TextView ingredients = findViewById(R.id.ingredients_tv);
 
-        List<String> listAlsoKnownAs = sandwich.getAlsoKnownAs();
-
-        List<String> listIngredients = sandwich.getIngredients();
+//        List<String> listAlsoKnownAs = sandwich.getAlsoKnownAs();
+//        List<String> listIngredients = sandwich.getIngredients();
 
         //set alsoKnowAs
-        if (listAlsoKnownAs.size() > 0) {
-            for (int i = 0; i < listAlsoKnownAs.size(); i++) {
-                alsoKnowAs.append(listAlsoKnownAs.get(i));
-                if (i != listAlsoKnownAs.size() - 1) {
-                    alsoKnowAs.append(", ");
-                }
-            }
-        }else{
-            alsoKnowAs.setText("Not has.");
+        if (sandwich.getAlsoKnownAs().size() > 0) {
+            alsoKnowAs.setText(getStringFromList(sandwich.getAlsoKnownAs()));
+//            for (int i = 0; i < listAlsoKnownAs.size(); i++) {
+//                alsoKnowAs.append(listAlsoKnownAs.get(i));
+//                if (i != listAlsoKnownAs.size() - 1) {
+//                    alsoKnowAs.append(", ");
+//                }
+//            }
+        } else {
+            alsoKnowAs.setText(R.string.data_unavailable_message);
         }
 
         //set placeOfOrigin
 
-        placeOfOrigin.setText(!sandwich.getPlaceOfOrigin().isEmpty()?sandwich.getPlaceOfOrigin():"Not define.");
+        placeOfOrigin.setText(!sandwich.getPlaceOfOrigin().isEmpty() ?
+                sandwich.getPlaceOfOrigin() : getString(R.string.data_unavailable_message));
 
         //set description
         description.setText(sandwich.getDescription());
 
         //set ingredients
-        if (listIngredients.size() > 0) {
-            for (int i = 0; i < listIngredients.size(); i++) {
-                ingredients.append(listIngredients.get(i));
-                if (i != listIngredients.size() - 1) {
-                    ingredients.append(", ");
-                }
+        ingredients.setText(getStringFromList(sandwich.getIngredients()));
+//        if (listIngredients.size() > 0) {
+//            for (int i = 0; i < listIngredients.size(); i++) {
+//                ingredients.append(listIngredients.get(i));
+//                if (i != listIngredients.size() - 1) {
+//                    ingredients.append(", ");
+//                }
+//            }
+//        }
+    }
+
+//i didn't use stringBuilder from begining because i thought it's overhead to create it
+    public String getStringFromList(List<String> list) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+            builder.append(list.get(i));
+            if (i != list.size() - 1) {
+                builder.append(", ");
             }
         }
-
-
+        return builder.toString();
     }
 }

@@ -1,116 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.udacity.sandwichclub.DetailActivity">
-    <!-- Sandwich Image -->
-    <ImageView
-        android:id="@+id/image_iv"
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/sandwich_picture_content_description"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!-- Also Know As -->
-    <TextView
-        android:id="@+id/label_alsoKnownAs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/detail_also_known_as_label"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/image_iv"
-        app:layout_constraintTop_toBottomOf="@+id/image_iv" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/also_known_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:maxWidth="320dp"
-        app:layout_constraintStart_toStartOf="@+id/label_alsoKnownAs"
-        app:layout_constraintTop_toBottomOf="@+id/label_alsoKnownAs"
-        tools:text="AlsoKnownAs output." />
-    <!-- origin -->
-    <TextView
-        android:id="@+id/label_placeOfOrigin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/detail_place_of_origin_label"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/also_known_tv"
-        app:layout_constraintTop_toBottomOf="@+id/also_known_tv" />
-
-    <TextView
-        android:id="@+id/origin_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@+id/label_placeOfOrigin"
-        app:layout_constraintTop_toBottomOf="@+id/label_placeOfOrigin"
-        tools:text="origin output." />
-
-    <!-- description -->
-    <TextView
-        android:id="@+id/label_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/detail_description_label"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/origin_tv"
-        app:layout_constraintTop_toBottomOf="@+id/origin_tv" />
-
-    <ScrollView
-        android:id="@+id/scroll_description"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        app:layout_constraintStart_toStartOf="@+id/label_description"
-        app:layout_constraintTop_toBottomOf="@+id/label_description">
-
-        <TextView
-            android:id="@+id/description_tv"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:autoSizeTextType="uniform"
-            android:maxWidth="320dp"
-            android:singleLine="false"
-            app:layout_constraintStart_toStartOf="@+id/label_description"
-            app:layout_constraintTop_toBottomOf="@+id/label_description"
-            tools:text="description output." />
-    </ScrollView>
+            android:layout_height="match_parent">
+            <!-- Sandwich Image -->
+            <ImageView
+                android:id="@+id/image_iv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/sandwich_picture_content_description"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!-- Also Know As -->
+            <TextView
+                android:id="@+id/label_alsoKnownAs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/detail_also_known_as_label"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/image_iv"
+                app:layout_constraintTop_toBottomOf="@+id/image_iv" />
 
-    <!-- ingredients -->
-    <TextView
-        android:id="@+id/label_ingredients"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/detail_ingredients_label"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/scroll_description"
-        app:layout_constraintTop_toBottomOf="@+id/scroll_description" />
+            <TextView
+                android:id="@+id/also_known_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:maxWidth="320dp"
+                app:layout_constraintStart_toStartOf="@+id/label_alsoKnownAs"
+                app:layout_constraintTop_toBottomOf="@+id/label_alsoKnownAs"
+                tools:text="AlsoKnownAs output." />
+            <!-- origin -->
+            <TextView
+                android:id="@+id/label_placeOfOrigin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/detail_place_of_origin_label"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/also_known_tv"
+                app:layout_constraintTop_toBottomOf="@+id/also_known_tv" />
 
-    <TextView
-        android:id="@+id/ingredients_tv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:maxWidth="320dp"
-        app:layout_constraintStart_toStartOf="@+id/label_ingredients"
-        app:layout_constraintTop_toBottomOf="@+id/label_ingredients"
-        tools:text="ingredients output." />
+            <TextView
+                android:id="@+id/origin_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@+id/label_placeOfOrigin"
+                app:layout_constraintTop_toBottomOf="@+id/label_placeOfOrigin"
+                tools:text="origin output." />
+
+            <!-- description -->
+            <TextView
+                android:id="@+id/label_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/detail_description_label"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/origin_tv"
+                app:layout_constraintTop_toBottomOf="@+id/origin_tv" />
+
+            <TextView
+                android:id="@+id/description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/label_description"
+                app:layout_constraintTop_toBottomOf="@+id/label_description"
+                tools:text="description output." />
 
 
-</android.support.constraint.ConstraintLayout>
+            <!-- ingredients -->
+            <TextView
+                android:id="@+id/label_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/detail_ingredients_label"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/description_tv"
+                app:layout_constraintTop_toBottomOf="@+id/description_tv" />
+
+            <TextView
+                android:id="@+id/ingredients_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:maxWidth="320dp"
+                app:layout_constraintStart_toStartOf="@+id/label_ingredients"
+                app:layout_constraintTop_toBottomOf="@+id/label_ingredients"
+                tools:text="ingredients output." />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
