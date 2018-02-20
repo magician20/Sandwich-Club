@@ -103,6 +103,7 @@ public class DetailActivity extends AppCompatActivity {
 //            }
 //        }
 //        return builder.toString();
-      return  TextUtils.join(", ", list);
+
+        return  TextUtils.join(", ", list);
     }
 }
