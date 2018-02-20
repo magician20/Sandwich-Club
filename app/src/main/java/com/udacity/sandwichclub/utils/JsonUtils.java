@@ -20,6 +20,8 @@ public class JsonUtils {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_INGREDIENTS = "ingredients";
+
+    //created this mid func to just be able to focus on fetching json string alone also to reuse the code
     public static Sandwich parseSandwichJson(String jsonStr) {
         Sandwich sandwich = null;
         try {

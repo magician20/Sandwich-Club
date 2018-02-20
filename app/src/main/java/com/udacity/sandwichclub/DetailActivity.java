@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -69,18 +70,12 @@ public class DetailActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.description_tv);
         TextView ingredients = findViewById(R.id.ingredients_tv);
 
-//        List<String> listAlsoKnownAs = sandwich.getAlsoKnownAs();
-//        List<String> listIngredients = sandwich.getIngredients();
+
 
         //set alsoKnowAs
         if (sandwich.getAlsoKnownAs().size() > 0) {
             alsoKnowAs.setText(getStringFromList(sandwich.getAlsoKnownAs()));
-//            for (int i = 0; i < listAlsoKnownAs.size(); i++) {
-//                alsoKnowAs.append(listAlsoKnownAs.get(i));
-//                if (i != listAlsoKnownAs.size() - 1) {
-//                    alsoKnowAs.append(", ");
-//                }
-//            }
+
         } else {
             alsoKnowAs.setText(R.string.data_unavailable_message);
         }
@@ -95,25 +90,19 @@ public class DetailActivity extends AppCompatActivity {
 
         //set ingredients
         ingredients.setText(getStringFromList(sandwich.getIngredients()));
-//        if (listIngredients.size() > 0) {
-//            for (int i = 0; i < listIngredients.size(); i++) {
-//                ingredients.append(listIngredients.get(i));
-//                if (i != listIngredients.size() - 1) {
-//                    ingredients.append(", ");
-//                }
-//            }
-//        }
+
     }
 
 //i didn't use stringBuilder from begining because i thought it's overhead to create it
     public String getStringFromList(List<String> list) {
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            builder.append(list.get(i));
-            if (i != list.size() - 1) {
-                builder.append(", ");
-            }
-        }
-        return builder.toString();
+//        StringBuilder builder = new StringBuilder();
+//        for (int i = 0; i < list.size(); i++) {
+//            builder.append(list.get(i));
+//            if (i != list.size() - 1) {
+//                builder.append(", ");
+//            }
+//        }
+//        return builder.toString();
+      return  TextUtils.join(", ", list);
     }
 }
